@@ -1,25 +1,33 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("UserGames", {
+    await queryInterface.createTable("GameRounds", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      username: {
+      roomId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.STRING,
+        references: {
+          model: "Rooms",
+          key: "id",
+        },
       },
-      email: {
+      winnerId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true,
-        type: Sequelize.STRING,
+        references: {
+          model: "Users",
+          key: "id",
+        },
       },
-      password: {
-        allowNull: false,
+      status: {
+        // ACTIVE, INACTIVE, ATAU FINISHED
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -29,9 +37,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      deletedAt: {
+        allowNull: true,
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("UserGames");
+    await queryInterface.dropTable("GameRounds");
   },
 };

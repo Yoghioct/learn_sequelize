@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "postgres",
-    "password": "dahyun",
-    "database": "sequelize_ch6",
+    "password": "admin",
+    "database": "ch7",
     "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "dahyun",
-    "database": "sequelize_ch6",
+    "password": "admin",
+    "database": "ch7",
     "host": "localhost",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
-    "password": "dahyun",
-    "database": "sequelize_ch6",
+    "password": "admin",
+    "database": "ch7",
     "host": "localhost",
     "dialect": "postgres"
   }
